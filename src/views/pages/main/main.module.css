@@ -1,0 +1,37 @@
+.div{
+    background-image: url("../../../assets/img/header_bg.svg");
+    background-size: 100%;
+    height: calc(100vh - 30px);
+    padding-top: 30px;
+    margin-top: -70px;
+}
+.h1{
+    margin-top: 138px;
+    font-family: Playfair Display;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 64px;
+    text-align: center;
+    color: #D4C17F;
+}
+.mouse{
+    text-align: center;
+    margin-top: 70px
+}
+.contacts{
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.str{
+    display: flex;
+    align-items: center;
+    grid-gap: 15px;
+    cursor: pointer;
+}
+.phone{
+    font-size: 18px;
+    line-height: 21px;
+}
