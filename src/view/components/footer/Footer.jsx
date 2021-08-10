@@ -1,10 +1,10 @@
 import React from "react";
 import css from "./footer.module.css";
-import youtube from "../../assets/img/footer_youtube.png";
-import vk from "../../assets/img/footer_vk.png";
-import facebook from "../../assets/img/footer_facebook.png";
-import instagram from "../../assets/img/footer_instagram.png"
-import logo from "../../assets/img/Logo.png"
+import youtube from "../../../assets/img/footer_youtube.png";
+import vk from "../../../assets/img/footer_vk.png";
+import facebook from "../../../assets/img/footer_facebook.png";
+import instagram from "../../../assets/img/footer_instagram.png"
+import logo from "../../../assets/img/Logo.png"
 
 export function Footer() {
     return(

@@ -43,7 +43,7 @@ input:focus {
 }
 
 .cta {
-    background-image: url("../../assets/img/cta_background.png");
+    background-image: url("../../../assets/img/cta_background.png");
     background-size: cover;
     background-position: center;
     padding: 180px 0;
