@@ -1,0 +1,31 @@
+.container {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+}
+.icons{
+    margin-bottom: 120px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+.icon {
+     width: 250px;
+    height: 300px;
+    text-align: center;
+}
+
+.icon_img {
+    width: 100px;
+    height: 100px;
+   text-align: center;
+   margin-bottom: 58px; 
+}
+.desc {
+    font-weight: 300;
+font-size: 20px;
+line-height: 27px;
+text-align: center;
+color: #FFFFFF;
+text-align: center;
+}
