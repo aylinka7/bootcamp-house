@@ -4,6 +4,19 @@
   box-sizing: border-box;
   font-family: 'Raleway';
   font-weight: 400;
+  color: #ffffff;
+  font-size: 12px;
+}
+a, Link{
+  text-decoration: none;
+  color: #ffffff;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway';
+  font-weight: 400;
 }
 
 
