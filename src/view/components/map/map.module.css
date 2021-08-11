@@ -1,0 +1,16 @@
+.maps .wrapper {
+    margin: 180px auto;
+    max-width: 1115px;
+    width: 100%;
+}
+.maps__h1 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    color: #d4c17f;
+    margin-bottom: 50px;
+}
+.maps__block {
+    display: flex;
+    justify-content: center;
+}

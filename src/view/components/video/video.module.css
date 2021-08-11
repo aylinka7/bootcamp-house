@@ -1,0 +1,7 @@
+.video .wrapper {
+    display: flex;
+    justify-content: center;
+}
+.video__block img {
+    cursor: pointer;
+}
