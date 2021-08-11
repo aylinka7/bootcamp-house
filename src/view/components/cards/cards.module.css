@@ -1,12 +1,10 @@
-.title {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 45px;
-  text-align: center;
-  margin-top: 65px;
-  margin-bottom: 65px;
-  color: #fff;
+.card {
+   max-height: 500px;
+   height: 100%;
+}
+.card_1 {
+    width: 350px;
+    height: 250px;
 }
 
 .flash {
@@ -23,40 +21,15 @@
   text-align: center;
   border-radius: 0px 4px 4px 0px;
   padding-top: 10px;
-  transform: translate(95px, 26px);
+  transform: translateY(40px);
 }
-.other {
-  display: flex;
-}
-.right {
-  height: 500px;
-  padding-left: 40px;
-  padding-right: 40px;
-  background: #0a223d;
-  border-radius: 0px 8px 8px 0px;
-}
-
-.stars {
-  padding-top: 47px;
-}
-
 .hotel_title {
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
   color: #fff;
-  margin-bottom: 27px;
-  margin-top: 6px;
+  margin-bottom: 23px;
 }
-.desc {
-  max-width: 300px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  color: #ffffff;
-  margin-bottom: 34px;
-}
-
 .icons {
   display: flex;
   margin-bottom: 11px;
@@ -73,8 +46,8 @@
   color: #ffffff;
 }
 .first_price {
-  margin-top: 37px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   width: 58px;
   height: 18px;
 }
@@ -87,4 +60,15 @@
 }
 .bottom {
   display: flex;
+}
+.icons > img {
+  margin-right: 18px;
+}
+.card_desc {
+  height: 250px;
+  width: 350px;
+  background: #0a223d;
+  border-radius: 0px 0px 8px 8px;
+  padding-left: 36px;
+  padding-top: 30px;
 }
