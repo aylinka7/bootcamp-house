@@ -34,7 +34,9 @@ code {
     monospace;
 }
 .container{
-
+  max-width: 1115px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 a {
