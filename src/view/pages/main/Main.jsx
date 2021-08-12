@@ -3,13 +3,13 @@ import css from "./main.module.css";
 import Mouse from "../../../assets/img/mouse.svg"
 import MapIcon from "../../../assets/img/map_icon.svg"
 import PhoneIcon from "../../../assets/img/phone_icon.svg"
-import {Form} from "../../components/form/Form";
-import {Video} from "../../components/video/Video";
-import {Maps} from "../../components/map/Map";
-import {Question} from "../../components/question/Question";
+import {Form} from "../../sections/form/Form";
+import {Video} from "../../sections/video/Video";
+import {Maps} from "../../sections/map/Map";
+import {Question} from "../../sections/question/Question";
 import {Footer} from "../../components/footer/Footer";
-import {Flats} from "../../components/flats/Flats";
-import {Icons} from "../../components/icons/Icons";
+import {Flats} from "../../sections/flats/Flats";
+import {Icons} from "../../sections/icons/Icons";
 
 function Main() {
     return (
