@@ -7,16 +7,14 @@ import {
 } from "react-router-dom";
 import Auth from "./view/pages/auth/Auth";
 import Dashboard from "./view/pages/dashboard/Dashboard";
-import Detail from "./view/pages/detail/Detail";
+import Search from "./view/pages/search/Search";
 import Info from "./view/pages/info/Info";
 import Main from "./view/pages/main/Main";
 
 function App() {
     return (
         <Router>
-            <div>
                 <Header/>
-            </div>
             <Switch>
                 <Route path="/auth">
                     <Auth/>
@@ -24,8 +22,8 @@ function App() {
                 <Route path="/dashboard">
                     <Dashboard/>
                 </Route>
-                <Route path="/detail">
-                    <Detail/>
+                <Route path="/search">
+                    <Search/>
                 </Route>
                 <Route path="/info">
                     <Info/>

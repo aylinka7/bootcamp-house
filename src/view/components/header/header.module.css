@@ -1,9 +1,15 @@
 
 .header{
-    width: 100%;
-    height: 100px;
-    background: #242B33;
-    padding-top: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.header__inner{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 .container{
     max-width: 1115px;
@@ -14,19 +20,131 @@
 }
 .logo{
     cursor: pointer;
-}
-.underlogo{
-    line-height: 14px;
-    letter-spacing: 0.12em;
-    margin-top: 10px;
-}
-.navbar{
-    padding-top: 15px;
+    position: relative;
     display: flex;
-    grid-gap: 40px;
+    align-items: center;
+    margin: auto 0;
 }
-.nav_item{
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.05em;
+.search{
+    display: flex;
+    align-items: center;
+    border-width: 2px;
+    border-radius: 1rem;
+}
+.search_img{
+    height: 50px;
+    background: #d4c17f;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.header__left{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.header__left > p{
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: all .3s;
+}
+
+.header__left > p:hover{
+    background: #d4c17f;
+}
+
+.global {
+    height: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: all .3s;
+}
+.global:hover{
+    background: #d4c17f;
+}
+.menu{
+    height: 1.5rem;
+    cursor: pointer;
+}
+.user{
+    height: 1.5rem;
+    cursor: pointer;
+}
+.auth{
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid #ffffff;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+.auth:hover{
+    background: #d4c17f;
+}
+
+.calendar{
+    margin: 0 360px 0 230px;
+}
+
+.quest{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid;
+}
+
+.quest__value{
+    font-size: 1.5rem;
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.users{
+    height: 1.25rem;
+    margin-right: 10px;
+}
+
+.input__calendar{
+    width: 50px;
+}
+
+.search__btns{
+    display: flex;
+    padding: 20px 0;
+}
+
+.search__btn{
+    flex-grow: 1;
+    color: #d4c17f;
+    font-weight: bold;
+    font-size: x-large;
+    background: none;
+    border: none;
+    transition: all .3s;
+
+}
+.search__btn:hover{
+    opacity: 0.5;
+}
+.cancel__btn{
+    flex-grow: 1;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: x-large;
+    background: none;
+    border: none;
+    transition: all .3s;
+}
+
+.cancel__btn:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.search__btn_link{
+    color: #d4c17f;
+    font-weight: bold;
+    font-size: x-large;
 }

@@ -1,25 +1,94 @@
-import React from "react";
+import React, {useState} from "react";
 import css from "./header.module.css";
-import Logo from "../../../assets/img/logo.svg"
+import Logo from "../../../assets/img/logo.svg";
+import {SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon} from "@heroicons/react/solid";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from 'react-date-range';
+import {Link} from "react-router-dom";
+import {router} from "next/client";
 
 export function Header() {
+    const [searchInput, setSearchInput] = useState("");
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [noOfGuests, setNoOfGuests] = useState(1)
+
+    const handleSelect = (ranges) => {
+        setStartDate(ranges.selection.startDate)
+        setEndDate(ranges.selection.endDate)
+    };
+
+    const resetInput = () => {
+        setSearchInput("")
+    }
+
+    const selectionRange ={
+        startDate: startDate,
+        endDate: endDate,
+        key: "selection",
+    };
+
     return (
+
             <header className={css.header}>
-                <div className={css.container}>
-                    <div className={css.logo}>
-                        <img src={Logo} alt=""/>
-                        <p className={css.underlogo}>АРЕНДА ЖИЛЬЯ</p>
-                    </div>
-                    <div className={css.navbar}>
-                        <div><a className={css.nav_item} href="#">О комплексе</a></div>
-                        <div><a className={css.nav_item} href="#">Район</a></div>
-                        <div><a className={css.nav_item} href="#">Каталог квартир</a></div>
-                        <div><a className={css.nav_item} href="#">Ипотека</a></div>
-                        <div><a className={css.nav_item} href="#">Контакты</a></div>
-                    </div>
+                <div className="container">
+                    <div className={css.header__inner}>
+                <div className={css.logo}>
+                    <Link to="/">
+                    <img src={Logo} height={15} alt=""/>
+                    </Link>
                 </div>
+                <div className={css.search}>
+                    <input
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        type="text" placeholder="начните ваш поиск..."/>
+                    <SearchIcon className={css.search_img} />
+                </div>
+                <div className={css.header__left}>
+                    <p>
+                        Сдайте жилье
+                    </p>
+                    <GlobeAltIcon className={css.global} />
+                    <div className={css.auth}>
+                        <MenuIcon className={css.menu}/>
+                        <UserCircleIcon className={css.user} />
+                    </div>
+
+                </div>
+
+                </div>
+
+                </div>
+                {searchInput && (
+                    <div className={css.calendar}>
+                        <DateRangePicker ranges={[selectionRange]}
+                                         minDate={new Date()}
+                                         rangeColors={["#d4c17f"]}
+                                         onChange={handleSelect}
+                        />
+                        <div className={css.quest}>
+                            <h2 className={css.quest__value}>
+                                Количество гостей
+                            </h2>
+
+                            <UsersIcon className={css.users} />
+                            <input
+                                className={css.input__calendar}
+                                value={noOfGuests}
+                                onChange={(e) => setNoOfGuests(e.target.value)}
+                                type="number"
+                                min={1}
+                            />
+                        </div>
+                        <div className={css.search__btns}>
+                            <button onClick={resetInput} className={css.cancel__btn}>Отмена</button>
+                            <button className={css.search__btn}>Поиск</button>
+                        </div>
+                    </div>
+                )}
             </header>
-    )
-        ;
+    );
 }
 
