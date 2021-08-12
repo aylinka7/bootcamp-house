@@ -5,14 +5,19 @@ import {SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon} from "@he
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
-import {Link} from "react-router-dom";
-import {router} from "next/client";
+import {Link, useHistory} from "react-router-dom";
 
 export function Header() {
     const [searchInput, setSearchInput] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [noOfGuests, setNoOfGuests] = useState(1)
+    let history = useHistory();
+    function handleClick() {
+        history.push(`/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&noOfGuests=${noOfGuests}`);
+        resetInput();
+    }
+
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate)
@@ -84,7 +89,9 @@ export function Header() {
                         </div>
                         <div className={css.search__btns}>
                             <button onClick={resetInput} className={css.cancel__btn}>Отмена</button>
-                            <button className={css.search__btn}>Поиск</button>
+                            <button onClick={()=>{
+                                handleClick();
+                            }} className={css.search__btn}>Поиск</button>
                         </div>
                     </div>
                 )}

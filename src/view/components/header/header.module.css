@@ -86,7 +86,7 @@
 }
 
 .calendar{
-    margin: 0 360px 0 230px;
+    margin: 0 360px 0 364px;
 }
 
 .quest{
@@ -141,10 +141,4 @@
 .cancel__btn:hover{
     opacity: 0.5;
     cursor: pointer;
-}
-
-.search__btn_link{
-    color: #d4c17f;
-    font-weight: bold;
-    font-size: x-large;
 }
