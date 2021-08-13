@@ -5,13 +5,22 @@ import {SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon} from "@he
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useHistory, useLocation} from "react-router-dom";
+import queryString from "query-string"
+import {format} from "date-fns";
 
-export function Header() {
+export function Header({placeholder}) {
+    const { search } = useLocation();
+    const values = queryString.parse(search);
     const [searchInput, setSearchInput] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [noOfGuests, setNoOfGuests] = useState(1)
+    const location = values.location;
+    const guest = values.noOfGuests;
+
+    const formattedStartDate = format(new Date(startDate), "dd MMMM yyyy")
+    const formattedEndDate = format(new Date(endDate), "dd MMMM yyyy")
     let history = useHistory();
     function handleClick() {
         history.push(`/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&noOfGuests=${noOfGuests}`);
@@ -48,7 +57,7 @@ export function Header() {
                     <input
                         value={searchInput}
                         onChange={(e) => setSearchInput(e.target.value)}
-                        type="text" placeholder="начните ваш поиск..."/>
+                        type="text" placeholder={ values.location? `${location} | ${formattedStartDate} — ${formattedEndDate} | ${guest} гостей`:"начните ваш поиск..."}/>
                     <SearchIcon className={css.search_img} />
                 </div>
                 <div className={css.header__left}>
