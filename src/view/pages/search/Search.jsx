@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import css from "./search.module.css"
 import queryString from "query-string"
 import { useLocation } from 'react-router-dom'
 import {format} from "date-fns";
+import axios from 'axios'
+import InfoCard from "../../components/infoCard/InfoCard";
 
 function Search() {
     const { search } = useLocation();
     const values = queryString.parse(search);
-    
+    const [searchResults, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios("https://60f1235338ecdf0017b0fa5e.mockapi.io/card")
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data: ", error);
+                setError(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) return "Loading...";
+    if (error) return "Error!";
+
+
 
     const startDate = values.startDate
     const endDate = values.endDate
@@ -28,6 +51,21 @@ function Search() {
                             <p className={css.search__filter__btn}>кровати и комнаты</p>
                             <p className={css.search__filter__btn}>Больше</p>
                         </div>
+
+                        {searchResults.map(({img, location, title, description, star, price, total}) => (
+                            <InfoCard key={img}
+                            img={img}
+                                      location={location}
+                                      title={title}
+                                      description={description}
+                                      star={star}
+                                      price={price}
+                                      total={total}
+                            />
+                            ))}
+                    </section>
+                    <section>
+
                     </section>
                 </main>
             </div>
