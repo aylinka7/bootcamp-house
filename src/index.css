@@ -76,3 +76,13 @@ li {
   height: 87vh;
   width: 100%;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242b33;
+}

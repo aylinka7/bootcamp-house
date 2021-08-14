@@ -5,8 +5,10 @@ import { useLocation } from 'react-router-dom'
 import {format} from "date-fns";
 import axios from 'axios'
 import InfoCard from "../../components/infoCard/InfoCard";
+import MapSecond from "../../components/mapSecond/mapSecond";
 
 function Search() {
+
     const { search } = useLocation();
     const values = queryString.parse(search);
     const [searchResults, setData] = useState(null);
@@ -38,7 +40,7 @@ function Search() {
     const formattedEndDate = format(new Date(endDate), "dd MMMM yyyy")
     const range = `${formattedStartDate} - ${formattedEndDate}`;
         return (
-            <div className="container">
+            <div className={css.search__container}>
                 <main className={css.main}>
                     <section>
                         <p className={css.search__subtitle}>Более 300 вариантов жилья
@@ -51,7 +53,7 @@ function Search() {
                             <p className={css.search__filter__btn}>кровати и комнаты</p>
                             <p className={css.search__filter__btn}>Больше</p>
                         </div>
-
+                        <div className={css.cards}>
                         {searchResults.map(({img, location, title, description, star, price, total}) => (
                             <InfoCard key={img}
                             img={img}
@@ -63,9 +65,10 @@ function Search() {
                                       total={total}
                             />
                             ))}
+                        </div>
                     </section>
-                    <section>
-
+                    <section className={css.map_second}>
+                        <MapSecond />
                     </section>
                 </main>
             </div>

@@ -39,11 +39,17 @@
 }
 
 .map_second{
-    min-width: 700px;
-    min-height: 100vh;
+    min-width: 780px;
+    min-height: 86vh;
     margin-left: 40px;
+    flex-grow: 1;
 }
 
 .main{
     display: flex;
+}
+
+.cards{
+    max-height: 82vh;
+    overflow: auto;
 }
