@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import css from "./header.module.css";
 import Logo from "../../../assets/img/logo.svg";
 import {SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon} from "@heroicons/react/solid";
@@ -9,6 +9,7 @@ import {Link, useHistory, useLocation} from "react-router-dom";
 import queryString from "query-string"
 import {format} from "date-fns";
 
+
 export function Header({placeholder}) {
     const { search } = useLocation();
     const values = queryString.parse(search);
@@ -16,6 +17,8 @@ export function Header({placeholder}) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [noOfGuests, setNoOfGuests] = useState(1)
+
+
     const location = values.location;
     const guest = values.noOfGuests;
 
@@ -107,4 +110,6 @@ export function Header({placeholder}) {
             </header>
     );
 }
+
+
 

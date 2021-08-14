@@ -1,3 +1,9 @@
+.search__container{
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .search__title{
     font-size: 1.875rem;
     margin-bottom: 1.5rem;
@@ -5,7 +11,7 @@
 .search__subtitle{
     font-size: 0.75rem;
     margin-bottom: 0.75rem;
-    margin-top: 0.75rem;
+    margin-top: 1.75rem;
 }
 
 .search__filter__btn{
@@ -32,4 +38,12 @@
     display: flex;
 }
 
+.map_second{
+    min-width: 700px;
+    min-height: 100vh;
+    margin-left: 40px;
+}
 
+.main{
+    display: flex;
+}
