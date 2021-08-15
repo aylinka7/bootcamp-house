@@ -64,14 +64,15 @@ export function Header({placeholder}) {
                     <SearchIcon className={css.search_img} />
                 </div>
                 <div className={css.header__left}>
-                    <p>
+                    <Link to="/addhouse"><p>
                         Сдайте жилье
-                    </p>
+                    </p></Link>
                     <GlobeAltIcon className={css.global} />
-                    <div className={css.auth}>
+                    <Link to="/login"><div className={css.auth}>
                         <MenuIcon className={css.menu}/>
                         <UserCircleIcon className={css.user} />
                     </div>
+                    </Link>
 
                 </div>
 

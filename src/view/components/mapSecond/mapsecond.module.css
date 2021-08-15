@@ -18,7 +18,7 @@
     cursor: pointer;
     transition: all .3s;
     border-radius: 5%;
-
+    max-width: 500px;
 }
 
 .card__search:hover{
