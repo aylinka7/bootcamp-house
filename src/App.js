@@ -9,6 +9,7 @@ import Info from "./view/pages/info/Info";
 import Main from "./view/pages/main/Main";
 import { Switch, Route } from "react-router-loading";
 import {mockServer} from "./api/mock-server";
+import HouseId from "./view/components/houseId/HouseId";
 import AddHouse from "./view/pages/addHouse/AddHouse";
 
 
@@ -21,6 +22,9 @@ function App() {
                 <Route path="/dashboard">
                     <Dashboard/>
                 </Route>
+                <Route path="/addhouse">
+                    <AddHouse />
+                </Route>
                 <Route path="/search">
                     <Search />
                 </Route>
@@ -30,11 +34,12 @@ function App() {
                 <Route path="/login">
                     <Auth />
                 </Route>
-                <Route path="/addhouse">
-                    <AddHouse />
-                </Route>
                 <Route exact path="/">
                     <Main/>
+                </Route>
+
+                <Route path="/house/:id" exact>
+                    <HouseId />
                 </Route>
             </Switch>
         </Router>

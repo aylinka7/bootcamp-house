@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import css from "./search.module.css"
 import queryString from "query-string"
-import { useLocation } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import {format} from "date-fns";
 import axios from 'axios'
 import InfoCard from "../../components/infoCard/InfoCard";
@@ -54,7 +54,8 @@ function Search() {
                             <p className={css.search__filter__btn}>Больше</p>
                         </div>
                         <div className={css.cards}>
-                        {searchResults.map(({img, location, title, description, star, price, total}) => (
+                        {searchResults.map(({id, img, location, title, description, star, price, total}) => (
+                            <Link to={`/house/${id}`}>
                             <InfoCard key={img}
                             img={img}
                                       location={location}
@@ -64,6 +65,7 @@ function Search() {
                                       price={price}
                                       total={total}
                             />
+                            </Link>
                             ))}
                         </div>
                     </section>
