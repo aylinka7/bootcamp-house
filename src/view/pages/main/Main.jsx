@@ -30,6 +30,7 @@ function Main() {
                 </div>
             </div>
             <Icons />
+            <h3 className={`${css.title} container`}>Наши квартиры</h3>
             <Flats />
             <Form />
             <Video />

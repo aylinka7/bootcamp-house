@@ -1,3 +1,13 @@
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    color: #d4c17f;
+    margin-bottom: 100px;
+  }
+
+
 .div{
     background-image: url("../../../assets/img/header_bg.svg");
     background-size: cover;

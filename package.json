@@ -28,7 +28,10 @@
     "react-router-loading": "^0.3.0",
     "react-scripts": "4.0.3",
     "react-simple-maps": "^2.3.0",
+    "react-slick": "^0.28.1",
     "react-yandex-maps": "^4.6.0",
+    "slick-carousel": "^1.8.1",
+    "slider-carousel-react": "^1.0.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
