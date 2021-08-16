@@ -30,12 +30,12 @@ export const mockServer = () => {
 
         seeds(server) {
             server.create("account", {
-                username: "Q169410",
-                password: "foobar"
+                username: "aidar",
+                password: "1234"
             });
             server.create("account", {
-                username: "Q123456",
-                password: "barfoo"
+                username: "rinat",
+                password: "12345"
             });
         }
     });

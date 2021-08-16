@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import axios from "axios";
 import {getCenter} from "geolib";
@@ -15,7 +15,7 @@ function MapSecond() {
         height: "100%",
         latitude: 42.859498263045126,
         longitude: 74.60786724799624,
-        zoom:11
+        zoom: 11
     });
     const [selectedLocation, setSelectedLocation] = useState({})
     const [searchResults, setData] = useState(null);
@@ -36,7 +36,7 @@ function MapSecond() {
             });
     }, []);
 
-    const [image, setImage] = useState({ preview: "", raw: "" });
+    const [image, setImage] = useState({preview: "", raw: ""});
 
     const handleChange = e => {
         if (e.target.files.length) {
@@ -62,13 +62,12 @@ function MapSecond() {
     };
 
 
-
     if (loading) return "Loading...";
     if (error) return "Error!";
 
     const handleMarkerClick = (id, lat, long) => {
         setSelectedLocation(id);
-        setViewport({ ...viewport, latitude: lat, longitude: long });
+        setViewport({...viewport, latitude: lat, longitude: long});
     };
 
     const handleAddClick = (e) => {
@@ -78,15 +77,12 @@ function MapSecond() {
             long: longitude,
         });
     };
+    console.log(newPlace)
     const coordinates = searchResults.map((result) => ({
         longitude: result.long,
         latitude: result.lat,
     }));
     const center = getCenter(coordinates);
-
-
-
-
 
 
     return (
@@ -112,89 +108,20 @@ function MapSecond() {
                         {selectedLocation.long === result.long && (
                             <Popup
                                 onClose={() => setSelectedLocation({})}
-                            closeOnClick={false}
+                                closeOnClick={false}
                                 closeButton={true}
                                 latitude={result.lat}
                                 longitude={result.long}
                             >
                                 <div className={css.card__search}>
-                            <div className={css.card_image}>
-                            <img src={result.img} height={80} width={300} className={css.card_image} />
-                            </div>
-
-                            <div className={css.card__inner}>
-                            <div className={css.card_location}>
-                            <p>{result.location}</p>
-                            <HeartIcon width={30} height={30} />
-                            </div>
-                            <h4 className={css.card__title}>{result.description}</h4>
-                            <p className={css.card__description}>{result.title}</p>
-                            <div className={css.card__rating}>
-                            <p className={css.card_star}>
-                            <StarIcon width={30} height={30}/>
-                        {result.star}
-                            </p>
-                            <div>
-                            <p className={css.card_price}>
-                        {result.price}
-                            </p>
-                            <p className={css.card_total}>
-                        {result.total}
-                            </p>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </Popup>
-                        )}
-                        {newPlace && (
-                            <>
-                            <Marker
-                                latitude={newPlace.lat}
-                                longitude={newPlace.long}
-                            >
-                                <p
-                                    role="img"
-                                    onClick={() => handleMarkerClick(newPlace.lat, newPlace.long)}
-                                    className={css.marker}
-                                    aria-label="push-pin"
-                                >📍</p>
-                            </Marker>
-                            <Popup
-                            onClose={() => setSelectedLocation({})}
-                            closeOnClick={true}
-                            latitude={newPlace.lat}
-                            longitude={newPlace.long}
-                        >
-                                <div className={css.card__search}>
                                     <div className={css.card_image}>
-                                        <label htmlFor="upload-button">
-                                            {image.preview ? (
-                                                <img src={image.preview} alt="dummy" width="100%" height="100%" className={css.card_image} />
-                                            ) : (
-                                                <>
-            <span className="fa-stack fa-2x mt-3 mb-2">
-              <i className="fas fa-circle fa-stack-2x" />
-              <i className="fas fa-store fa-stack-1x fa-inverse" />
-            </span>
-                                                    <h5 className="text-center">Upload your photo</h5>
-                                                </>
-                                            )}
-                                        </label>
-                                        <input
-                                            type="file"
-                                            id="upload-button"
-                                            style={{ display: "none" }}
-                                            onChange={handleChange}
-                                        />
-                                        <br />
-                                        <button onClick={handleUpload}>Upload</button>
+                                        <img src={result.img} height={80} width={300} className={css.card_image}/>
                                     </div>
 
                                     <div className={css.card__inner}>
                                         <div className={css.card_location}>
                                             <p>{result.location}</p>
-                                            <HeartIcon width={30} height={30} />
+                                            <HeartIcon width={30} height={30}/>
                                         </div>
                                         <h4 className={css.card__title}>{result.description}</h4>
                                         <p className={css.card__description}>{result.title}</p>
@@ -214,7 +141,77 @@ function MapSecond() {
                                         </div>
                                     </div>
                                 </div>
-                        </Popup>
+                            </Popup>
+                        )}
+                        {newPlace && (
+                            <>
+                                <Marker
+                                    latitude={newPlace.lat}
+                                    longitude={newPlace.long}
+                                >
+                                    <p
+                                        role="img"
+                                        onClick={() => handleMarkerClick(newPlace.lat, newPlace.long)}
+                                        className={css.marker}
+                                        aria-label="push-pin"
+                                    >📍</p>
+                                </Marker>
+                                <Popup
+                                    onClose={() => setSelectedLocation({})}
+                                    closeOnClick={true}
+                                    latitude={newPlace.lat}
+                                    longitude={newPlace.long}
+                                >
+                                    <div className={css.card__search}>
+                                        <div className={css.card_image}>
+                                            <label htmlFor="upload-button">
+                                                {image.preview ? (
+                                                    <img src={image.preview} alt="dummy" width="100%" height="100%"
+                                                         className={css.card_image}/>
+                                                ) : (
+                                                    <>
+            <span className="fa-stack fa-2x mt-3 mb-2">
+              <i className="fas fa-circle fa-stack-2x"/>
+              <i className="fas fa-store fa-stack-1x fa-inverse"/>
+            </span>
+                                                        <h5 className="text-center">Upload your photo</h5>
+                                                    </>
+                                                )}
+                                            </label>
+                                            <input
+                                                type="file"
+                                                id="upload-button"
+                                                style={{display: "none"}}
+                                                onChange={handleChange}
+                                            />
+                                            <br/>
+                                            <button onClick={handleUpload}>Upload</button>
+                                        </div>
+
+                                        <div className={css.card__inner}>
+                                            <div className={css.card_location}>
+                                                <p>{result.location}</p>
+                                                <HeartIcon width={30} height={30}/>
+                                            </div>
+                                            <h4 className={css.card__title}>{result.description}</h4>
+                                            <p className={css.card__description}>{result.title}</p>
+                                            <div className={css.card__rating}>
+                                                <p className={css.card_star}>
+                                                    <StarIcon width={30} height={30}/>
+                                                    {result.star}
+                                                </p>
+                                                <div>
+                                                    <p className={css.card_price}>
+                                                        {result.price}
+                                                    </p>
+                                                    <p className={css.card_total}>
+                                                        {result.total}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Popup>
                             </>
                         )}
                     </div>
@@ -223,4 +220,5 @@ function MapSecond() {
         </div>
     )
 }
+
 export default MapSecond;

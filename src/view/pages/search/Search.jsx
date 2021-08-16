@@ -16,7 +16,7 @@ function Search() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios("https://60f1235338ecdf0017b0fa5e.mockapi.io/card")
+        axios.get("https://60f1235338ecdf0017b0fa5e.mockapi.io/card")
             .then((response) => {
                 setData(response.data);
             })
@@ -27,7 +27,7 @@ function Search() {
             .finally(() => {
                 setLoading(false);
             });
-    }, []);
+    }, [search]);
 
     if (loading) return "Loading...";
     if (error) return "Error!";

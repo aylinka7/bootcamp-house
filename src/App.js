@@ -11,6 +11,8 @@ import { Switch, Route } from "react-router-loading";
 import {mockServer} from "./api/mock-server";
 import HouseId from "./view/components/houseId/HouseId";
 import AddHouse from "./view/pages/addHouse/AddHouse";
+import Login from "./view/pages/login/Login";
+import {PrivateRoute} from "./route/privateRouter/PrivateRouter";
 
 
 function App() {
@@ -19,12 +21,10 @@ function App() {
         <Router>
                 <Header />
             <Switch>
-                <Route path="/dashboard">
-                    <Dashboard/>
-                </Route>
-                <Route path="/addhouse">
-                    <AddHouse />
-                </Route>
+                <PrivateRoute path="/addhouse" Component={AddHouse} />
+                    {/*<Route path="/addhouse">*/}
+                    {/*    <AddHouse />*/}
+                    {/*</Route>*/}
                 <Route path="/search">
                     <Search />
                 </Route>
@@ -32,7 +32,7 @@ function App() {
                     <Info/>
                 </Route>
                 <Route path="/login">
-                    <Auth />
+                    <Login />
                 </Route>
                 <Route exact path="/">
                     <Main/>
