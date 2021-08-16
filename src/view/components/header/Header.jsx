@@ -64,7 +64,7 @@ export function Header({placeholder}) {
                     <SearchIcon className={css.search_img} />
                 </div>
                 <div className={css.header__left}>
-                    <Link to="/addhouse"><p>
+                    <Link to="/login"><p>
                         Сдайте жилье
                     </p></Link>
                     <GlobeAltIcon className={css.global} />
