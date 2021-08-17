@@ -8,6 +8,7 @@ import {
 } from "react-toasts";
 import base64 from "react-native-base64";
 import { validateName, validatePassword } from "../../validations/validations";
+import css from "../login/login.module.css"
 
 class Register extends React.Component {
     render() {
@@ -59,36 +60,25 @@ class Register extends React.Component {
                                 })
                             );
 
-                            ToastsStore.success("User registered successfully.");
+                            ToastsStore.success("Аккаунт успешно создан.");
                             actions.resetForm();
                         } else {
-                            ToastsStore.error("Username is already exists.");
+                            ToastsStore.error("Имя используется на данный момент.");
                         }
                     }}
                 >
                     {(props) => (
-                        <div className="container mt-2 mb-4 divMiddle">
-                            <div className="col-sm-4 ml-auto mr-auto">
-                                <div className="tab-content" id="pills-tabContent">
-                                    <div
-                                        className="tab-pane fade show active"
-                                        id="pills-signup"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-signup-tab"
-                                    >
-                                        <div className="col-sm-12 border border-primary shadow rounded pt-2">
-                                            <div className="text-center">
-                                                <img
-                                                    src="./logo.png"
-                                                    className="rounded-circle border p-1 rotate"
-                                                    alt=""
-                                                />
-                                            </div>
+                        <div className={css.login}>
+                            <div className={css.login__inner}>
+                                <h1>Регистрация</h1>
+                                <div>
+                                    <div>
+                                        <div>
                                             <form onSubmit={props.handleSubmit}>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        First Name <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Имя <span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.firstName &&
                               props.touched.firstName &&
                               props.errors.firstName}
@@ -96,18 +86,18 @@ class Register extends React.Component {
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        placeholder="Enter First Name"
+                                                        placeholder="Имя"
                                                         name="firstName"
-                                                        className="form-control"
+                                                        className={css.input__login}
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
                                                         value={props.values.firstName}
                                                     />
                                                 </div>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        Las Name <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Фамилия <span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.lastName &&
                               props.touched.lastName &&
                               props.errors.lastName}
@@ -115,18 +105,18 @@ class Register extends React.Component {
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        placeholder="Enter Last Name"
+                                                        placeholder="Фамилия"
                                                         name="lastName"
-                                                        className="form-control"
+                                                        className={css.input__login}
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
                                                         value={props.values.lastName}
                                                     />
                                                 </div>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        User Name <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Имя пользователя <span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.userName &&
                               props.touched.userName &&
                               props.errors.userName}
@@ -134,22 +124,19 @@ class Register extends React.Component {
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        placeholder="Enter User Name"
+                                                        className={css.input__login}
+                                                        placeholder="Имя пользователя"
                                                         name="userName"
-                                                        className="form-control"
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
                                                         value={props.values.userName}
                                                     />
-                                                    <div className="text-danger">
-                                                        <em>This will be your login name!</em>
-                                                    </div>
                                                 </div>
 
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        Password <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Пароль <span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.password &&
                               props.touched.password &&
                               props.errors.password}
@@ -158,27 +145,27 @@ class Register extends React.Component {
                                                     <input
                                                         type="password"
                                                         name="password"
-                                                        className="form-control"
+                                                        className={css.input__login}
                                                         placeholder="***********"
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
                                                         value={props.values.password}
                                                     />
                                                 </div>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        Confirm Password{" "}
-                                                        <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Подтвердите пароль{" "}
+                                                        <span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.cpassword &&
                               props.touched.cpassword &&
                               props.errors.cpassword}
                             </span>
                                                     </label>
                                                     <input
+                                                        className={css.input__login}
                                                         type="password"
                                                         name="cpassword"
-                                                        className="form-control"
                                                         placeholder="***********"
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
@@ -186,25 +173,25 @@ class Register extends React.Component {
                                                     />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label>
-                                                        <p>
-                                                            Already have an account?{" "}
-                                                            <Link to={"/"}>Sign In</Link>{" "}
-                                                        </p>
-                                                    </label>
-                                                </div>
-                                                <div className="form-group">
                                                     <input
+                                                        className={css.input__submit}
                                                         type="submit"
                                                         name="signupsubmit"
-                                                        value="Sign Up"
-                                                        className="btn btn-block btn-primary"
+                                                        value="Зарегистрироваться"
                                                     />
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                            <div className={css.overlay}>
+                                <h6>Уже есть аккаунт?</h6>
+                                <p>
+                                    {" "}
+                                    <Link to={"/login"}><button className={css.ghost}>Войти</button></Link>{" "}
+                                </p>
                             </div>
                         </div>
                     )}

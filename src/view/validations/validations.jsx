@@ -1,17 +1,17 @@
 const validateName = (value, field) => {
     if (!value) {
-        return "Required";
+        return "Недоступно";
     } else if (!/^[A-Za-z]+$/i.test(value)) {
-        return `Invalid ${field}`;
+        return `Неправильный ${field}`;
     }
 };
 const validatePassword = (value, field, passwordValue) => {
     if (!value) {
-        return "Required";
+        return "Недоступно";
     } else if (value.length > 6 || value.length < 6) {
-        return "6 characters only allowed";
+        return "Только 6 символов";
     } else if (field === "cpassword" && value !== passwordValue) {
-        return "Passwords do not match.";
+        return "Пароли не совпадают";
     }
 };
 

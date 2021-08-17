@@ -4,10 +4,11 @@ import {
     ToastsStore,
     ToastsContainerPosition,
 } from "react-toasts";
-import { Redirect, Link } from "react-router-dom";
-import { Formik } from "formik";
+import {Redirect, Link} from "react-router-dom";
+import {Formik} from "formik";
 import base64 from "react-native-base64";
-import { validateName, validatePassword } from "../../validations/validations";
+import {validateName, validatePassword} from "../../validations/validations";
+import css from "./login.module.css"
 
 class LogIn extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class LogIn extends React.Component {
                         actions.setSubmitting(false);
                         let userObj = localStorage.getItem(values.userName);
                         if (!userObj) {
-                            ToastsStore.error("Invalid Username/Password.");
+                            ToastsStore.error("Неправильный логин/пароль пользователя");
                         } else {
                             userObj = JSON.parse(userObj);
                             const localUname = (userObj && userObj.userName) || null;
@@ -53,42 +54,27 @@ class LogIn extends React.Component {
                             ) {
                                 userObj.isUserLoggedIn = true;
                                 localStorage.setItem(values.userName, JSON.stringify(userObj));
-                                this.setState({ submit: true });
+                                this.setState({submit: true});
                             } else {
-                                ToastsStore.error("Invalid Username/Password.");
+                                ToastsStore.error("Неправильный логин/пароль пользователя");
                             }
                         }
                     }}
                 >
                     {(props) => (
-                        <div className="container mt-2 mb-4 divMiddle">
-                            <div className="col-sm-8 ml-auto mr-auto">
-                                <h1 className="display-5 text-center pb-5">
-                                    <u>React Signup, Signin, Logout features</u>
+                        <div className={css.login}>
+                            <div className={css.login__inner}>
+                                <h1>
+                                    Войти
                                 </h1>
-                                <div
-                                    className="tab-content col-sm-6 ml-auto mr-auto"
-                                    id="pills-tabContent"
-                                >
-                                    <div
-                                        className="tab-pane fade show active"
-                                        id="pills-signin"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-signin-tab"
-                                    >
-                                        <div className="col-sm-12 border border-primary shadow rounded pt-2">
-                                            <div className="text-center">
-                                                <img
-                                                    src="./logo.png"
-                                                    className="rounded-circle border p-1 rotate"
-                                                    alt=""
-                                                />
-                                            </div>
+                                <div>
+                                    <div>
+                                        <div>
                                             <form onSubmit={props.handleSubmit}>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        Username <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Имя пользователя<span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.userName &&
                               props.touched.userName &&
                               props.errors.userName}
@@ -96,18 +82,18 @@ class LogIn extends React.Component {
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        className="form-control"
-                                                        placeholder="UserName"
+                                                        className={css.input__login}
+                                                        placeholder="Логин"
                                                         name="userName"
                                                         onChange={props.handleChange}
                                                         onBlur={props.handleBlur}
                                                         value={props.values.userName}
                                                     />
                                                 </div>
-                                                <div className="form-group">
-                                                    <label className="font-weight-bold">
-                                                        Password <span className="text-danger">*</span>
-                                                        <span className="errorMsg">
+                                                <div>
+                                                    <label className={css.label__login}>
+                                                        Пароль<span className={css.login__danger}>*</span>
+                                                        <span className={css.error__message}>
                               {props.errors.password &&
                               props.touched.password &&
                               props.errors.password}
@@ -115,7 +101,7 @@ class LogIn extends React.Component {
                                                     </label>
                                                     <input
                                                         type="password"
-                                                        className="form-control"
+                                                        className={css.input__login}
                                                         placeholder="***********"
                                                         name="password"
                                                         onChange={props.handleChange}
@@ -123,20 +109,11 @@ class LogIn extends React.Component {
                                                         value={props.values.password}
                                                     />
                                                 </div>
-                                                <div className="form-group">
-                                                    <div className="row">
-                                                        <div className="col text-right">
-                                                            {" "}
-                                                            <Link to={"/register"}>Create Account</Link>{" "}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
+                                                <div>
                                                     <input
+                                                        className={css.input__submit}
                                                         type="submit"
-                                                        name="submit"
-                                                        value="Sign In"
-                                                        className="btn btn-block btn-primary"
+                                                        value="Войти"
                                                     />
                                                 </div>
                                             </form>
@@ -146,14 +123,21 @@ class LogIn extends React.Component {
                                                 <Redirect
                                                     to={{
                                                         pathname: "/dashboard",
-                                                        state: { userName: props.values.userName },
+                                                        state: {userName: props.values.userName},
                                                     }}
                                                 />
                                             ) : null}
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+                                    <div className={css.overlay}>
+                                        <h6>Привет, Друг!</h6>
+                                        <p>Создай аккаунт для добавления своей квартиры!</p>
+                                        {" "}
+                                        <Link to={"/register"}><button className={css.ghost}>Создать аккаунт</button></Link>{" "}
+                                    </div>
                             <ToastsContainer
                                 store={ToastsStore}
                                 position={ToastsContainerPosition.TOP_RIGHT}
@@ -165,4 +149,5 @@ class LogIn extends React.Component {
         );
     }
 }
+
 export default LogIn;

@@ -35,8 +35,6 @@ export default function HouseId() {
     if (loading) return "Loading...";
     if (error) return "Error!";
 
-    console.log(searchResults)
-
     return (
 
         <div className={css.card__search}>
@@ -49,7 +47,7 @@ export default function HouseId() {
                     <p>{searchResults.location}</p>
                     <HeartIcon width={30} height={30} />
                 </div>
-                <h4 className={css.card__title}>1234</h4>
+                <h4 className={css.card__title}>{searchResults.description}</h4>
                 <p className={css.card__description}>{searchResults.title}</p>
                 <div className={css.card__rating}>
                     <p className={css.card_star}>
@@ -58,10 +56,10 @@ export default function HouseId() {
                     </p>
                     <div>
                         <p className={css.card_price}>
-                            {searchResults.price}
+                            {searchResults.price} сом / ночь
                         </p>
                         <p className={css.card_total}>
-                            {searchResults.total}
+                            Всего {searchResults.total} сом
                         </p>
                     </div>
                 </div>
