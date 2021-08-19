@@ -22,7 +22,7 @@ export function Form() {
                                 <input type="text" name="name" placeholder="Ваше имя"/>
                             </p>
                             <p className={css.p}>
-                                *Мы никому не передаем ваши данные. И не сохраняем ваш номер в базу.
+                                *Мы никому не передаем ваши данные. &nbsp; &nbsp; &nbsp; &nbsp; И не сохраняем ваш номер в базу.
                             </p>
                         </div>
                         <div className={css.form_block}>
@@ -30,7 +30,7 @@ export function Form() {
                                 <input type="tel" name="phone" placeholder="Ваш телефон"/>
                             </p>
                             <p>
-                                <button>
+                                <button className={css.btn}>
                                     Посмотреть район
                                 </button>
                             </p>

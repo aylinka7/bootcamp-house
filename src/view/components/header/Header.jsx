@@ -62,7 +62,7 @@ export function Header({placeholder}) {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                             type="text"
-                            placeholder={values.location ? `${location} | ${formattedStartDate} — ${formattedEndDate} | ${guest} гостей` : "начните ваш поиск..."}/>
+                            placeholder={values.location ? `${location} | ${formattedStartDate} — ${formattedEndDate} | ${guest} гостей` : "Начните ваш поиск..."}/>
                         <SearchIcon className={css.search_img}/>
                     </div>
                     <div className={css.header__left}>

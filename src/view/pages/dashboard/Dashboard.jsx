@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./dashboard.module.css"
 import { Redirect } from "react-router-dom";
 import SweetAlert from "react-bootstrap-sweetalert";
 import AddHouse from "../addHouse/AddHouse";
@@ -63,7 +64,7 @@ class DashBoard extends React.Component {
                                 >
                                     <button
                                         type="button"
-                                        className="btn btn-danger"
+                                        className={css.btn}
                                         onClick={this.onLogout}
                                     >
                                         LOGOUT
@@ -75,7 +76,7 @@ class DashBoard extends React.Component {
                 </nav>
 
                 <div className="container">
-                    <p>Добро пожаловать в личный кабинет {localUname}</p>
+                    <p className={css.welcome}>Добро пожаловать в личный кабинет {localUname}</p>
                 </div>
                 <div className="container">
                 <AddHouse />

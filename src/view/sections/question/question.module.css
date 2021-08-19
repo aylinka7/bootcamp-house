@@ -26,4 +26,16 @@
     line-height: 16px;
     color: #e7e7e7;
     text-align: center;
+    width: 270px;
+}
+.btn{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 27px;
+    color: #FFFFFF;
+    background: #D4C17F;
+    padding: 11px 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

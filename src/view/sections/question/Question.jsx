@@ -17,7 +17,7 @@ export function Question() {
                         <input type="tel" name="phone" placeholder="Ваш телефон"/>
                     </p>
                     <p>
-                        <button>
+                        <button className={css.btn}>
                             Посмотреть район
                         </button>
                     </p>
