@@ -1,9 +1,10 @@
 import React from 'react';
+import { Other } from '../../components/other/Other';
 
 function Info() {
     return (
         <div>
-            Info
+            <Other />
         </div>
     );
 }

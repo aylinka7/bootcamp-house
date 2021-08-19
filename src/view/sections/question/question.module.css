@@ -1,0 +1,29 @@
+.cta_question {
+    padding: 0 0 180px 0;
+    max-width: 1115px;
+    width: 100%;
+    margin: 0 auto;
+}
+.cta_question form.form {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+}
+.cta_question form.form p {
+    padding-right: 35px;
+}
+.cta_question form.form p:last-child {
+    padding-right: 0;
+}
+.cta_question h1.title {
+    font-weight: bold;
+    font-size: 36px;
+    color: #d4c17f;
+    margin-bottom: 50px;
+}
+.confident {
+    font-size: 12px;
+    line-height: 16px;
+    color: #e7e7e7;
+    text-align: center;
+}

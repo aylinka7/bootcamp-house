@@ -1,6 +1,6 @@
 .div{
     background-image: url("../../../assets/img/header_bg.svg");
-    background-size: 100%;
+    background-size: cover;
     height: calc(100vh - 30px);
     padding-top: 30px;
     margin-top: -70px;

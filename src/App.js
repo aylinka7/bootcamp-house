@@ -1,15 +1,23 @@
-import {Header} from "./view/components/header/Header";
+<<<<<<<<< Temporary merge branch 1
+
+function App() {
+  return (
+    <div>
+
+    </div>
+=========
+import {Header} from "./views/components/header/Header";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
-import Auth from "./view/pages/auth/Auth";
-import Dashboard from "./view/pages/dashboard/Dashboard";
-import Detail from "./view/pages/detail/Detail";
-import Info from "./view/pages/info/Info";
-import Main from "./view/pages/main/Main";
+import Auth from "./views/pages/auth/Auth";
+import Dashboard from "./views/pages/dashboard/Dashboard";
+import Detail from "./views/pages/detail/Detail";
+import Info from "./views/pages/info/Info";
+import Main from "./views/pages/main/Main";
 
 function App() {
   return (
@@ -35,6 +43,8 @@ function App() {
             </Route>
         </Switch>
     </Router>
-  )}
+>>>>>>>>> Temporary merge branch 2
+  );
+}
 
 export default App;
