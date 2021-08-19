@@ -7,7 +7,6 @@ import Search from "./view/pages/search/Search";
 import Info from "./view/pages/info/Info";
 import Main from "./view/pages/main/Main";
 import { Switch, Route } from "react-router-loading";
-import HouseId from "./view/components/houseId/HouseId";
 import AddHouse from "./view/pages/addHouse/AddHouse";
 import LogIn from "./view/pages/login/Login";
 import {ProtectedRoute} from "./route/prodectedRoute/ProdectedRoute";
@@ -16,7 +15,6 @@ import Register from "./view/pages/register/Register";
 
 
 function App() {
-
     return (
         <Router>
                 <Header />
@@ -35,9 +33,6 @@ function App() {
                     <Main/>
                 </Route>
 
-                <Route path="/house/:id" exact>
-                    <HouseId />
-                </Route>
             </Switch>
         </Router>
     )
